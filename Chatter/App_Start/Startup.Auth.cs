@@ -54,9 +54,9 @@ namespace Chatter
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1898518950401184",
+               appSecret: "35ed29dd0d25faeb4f80fc44da235c05");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
