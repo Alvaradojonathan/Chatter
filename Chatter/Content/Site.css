@@ -22,3 +22,17 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#mess {
+    color:black;
+    padding:40px 40px 40px 40px;
+    display:block;
+    margin-right:40px;
+    margin-top:40px;
+    margin-bottom:40px;
+    margin-left:40px;
+}
+
+.bg-primary{
+    padding:20px 0px 20px 0px;
+}

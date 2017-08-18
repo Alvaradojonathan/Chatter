@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Chatter.Models.Chat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div id="response"></div>
+<div>
+    <form>
+        <input type="text" name="postMessage" id="postMessage" placeholder="Type your message...">
+        <input type="submit" class="button" id="postButton"value="post">
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $.get("@Url.Action("TestJson","Chats")", function (serverResponse) {
+                var jsonTest = JSON.parse(serverResponse);
+                //console.log(jsonTest);
+
+                var ul = $("<ul>", { id: "messageList", "class": "bg-primary" });
+                $("#response").append(ul);
+
+                $.each(jsonTest, function (inx, val) {
+                    var li = $("<li>", { id: "mess", "class": "thumbnail" });
+                    li.text(val.UserName);
+                    var p = $("<p>");
+                    p.text(val.Message);
+                    li.append(p);
+                    ul.append(li);
+                })
+                //window.setTimeout(function () { document.location.reload(true); }, 15000);
+            });
+            $("#postButton").click(function () {
+                var Message = $("#postMessage").val();
+                $.post("@Url.Action("PostChats","Chats")", {Message, Message})
+            });
+        });
+    </script>
+}
