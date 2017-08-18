@@ -5,13 +5,14 @@
 }
 
 
+
+<form class="thumbnail" id="mess">
+    <textarea type="text" maxlength="200" name="postMessage" id="postMessage" placeholder="200 character limit"></textarea>
+    <br />
+    <input type="submit" class="button" id="postButton" value="Post">
+</form>
+
 <div id="response"></div>
-<div>
-    <form>
-        <input type="text" name="postMessage" id="postMessage" placeholder="Type your message...">
-        <input type="submit" class="button" id="postButton"value="post">
-    </form>
-</div>
 
 @section Scripts {
     <script>
@@ -35,7 +36,7 @@
             });
             $("#postButton").click(function () {
                 var Message = $("#postMessage").val();
-                $.post("@Url.Action("PostChats","Chats")", {Message, Message})
+                $.post("@Url.Action("PostChats","Chats")", { Message, Message })
             });
         });
     </script>
